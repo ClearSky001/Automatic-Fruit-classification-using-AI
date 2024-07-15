@@ -10,7 +10,7 @@
 
 모델 훈련 및 모델 테스트에 사용된 데이터셋은 다음 경로에서 다운로드할 수 있습니다: [Kaggle 데이터셋](https://www.kaggle.com/datasets/sriramr/fruits-fresh-and-rotten-for-classification)
 
-#### 모델 제작 및 Test 데이터셋을 통해 모델의 성능 측정
+#### 모델 제작 및 Test 데이터셋을 통해 모델의 성능 측정의 전 과정
 (YOLOv5s_model_train_and_model_test.ipynb 파일 참고)
 
 GitHub에서 YOLOv5s_model_train_and_model_test.ipynb 파일이 열리지 않고 있습니다. 해당 파일을 다운로드한 후 Jupyter Notebook에서 열면 출력값들이 잘 나옵니다.
