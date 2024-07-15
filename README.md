@@ -17,7 +17,16 @@ GitHub에서 YOLOv5s_model_train_and_model_test.ipynb 파일이 열리지 않고
 
 #### YOLOv5s 모델의 전반적 성능 및 실제 환경에서의 테스트
 
-yolov5s_model_test_result_data 폴더에서 확인할 수 있듯, 상당히 높은 성능을 보입니다.
+yolov5s_model_test_result_data 폴더에서 확인할 수 있듯, 상당히 높은 성능을 보입니다. 아래의 이미지들은 모델 훈련 뒤, Test 데이터셋으로 측정한 모델의 성능 지표들입니다. 위에서부터 순서대로 Confusion Matrix, F1-Confidence Curve, Precision-Confidence Curve, Precision-Recall Curve, Recall-Confidence Curve, 그리고 6개의 항목에 대한 모델의 성능 지표를 시각화한 결과입니다.
+
+![Confusion Matrix](images/confusion_matrix.png)
+![F1-Confidence Curve](images/F1_curve.png)
+![Precision-Confidence Curve](images/P_curve.png)
+![Precision-Recall Curve](images/PR_curve.png)
+![Recall-Confidence Curve](images/R_curve.png)
+![Visualization of yolov5s model test result](images/visualization_of_yolov5s_model_test_result.PNG)
+
+
 * 실제 과일 사진을 직접 찍어 모델에 인식시키고 웹캠에 과일을 가져다 대어 모델이 실제 환경에서도 잘 작동하는지를 테스트하였습니다. 테스트 데이터에서 높은 정확도를 보였던 모델이 실제 환경에서는 과일을 제대로 인식하지 못하는 경우가 발생하였습니다.
 
   * 해결 방안:
