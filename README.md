@@ -1,8 +1,11 @@
 # Automatic Fruit Classification using AI
-
 모델을 몇 가지 제작하여, 그 중 성능이 가장 좋은 모델로 과일 분류기를 제작하는 프로젝트입니다.
+* 프로젝트를 진행하며 GitHub에 지속적으로 업데이트해 나갈 예정이며, 프로젝트가 종료된 후에는 이 README를 영어로도 번역하여 게재할 계획입니다.
 
-## 프로젝트를 수행하며 제작한 모델들
+## About this project
+이 프로젝트는 한국의 과학기술정보통신부에서 주최하고, 한국정보산업연합회(FKII)에서 주관하는 프로젝트입니다.
+
+## ✨프로젝트를 수행하며 제작한 모델들(AI Models which I've used during this project)
 
 ### 1. YOLOv5s 모델
 
