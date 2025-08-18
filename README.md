@@ -8,7 +8,8 @@
 라즈베리파이와 아두이노를 사용하여 수집된 데이터를 실시간으로 처리하고, 웹 기반 서비스로 시각화하여 **농업 자동화 시스템**을 설계했습니다.  
 
 **성과 요약:**  
-- 2024 한이음 ICT 멘토링 공모전 **입선 수상**  
+- 2024 한이음 ICT 멘토링 공모전 **입선 수상**
+- [한국정보처리학회 ACK 2024](https://www.manuscriptlink.com/society/kips/conference/ack2024) 학술대회에 공동제1 저자로 [논문](https://koreascience.kr/article/CFKO202433162499114.page) 게재
 - 프로젝트 후속 연구로 **AI 모델 성능 개선** 진행 **(Test 데이터 성능 25% → 76% 향상) & 데이터 재구성을 통한 모델 일반화 성능 향상**
 - 공모전 보고서 및 자료는 리포지토리의 **'2024_Hanium_ICT_mentoring_competition_and_Paper' 폴더**에서 확인할 수 있습니다.
 
