@@ -1,3 +1,122 @@
+# Automatic Fruit Classification Service Using AI
+
+**English** | [한국어](#ai를-활용한-과일-자동분류-서비스)
+
+## Project Overview & Results Summary  
+This project was entered in the **2024 Hanium ICT Mentoring Contest**, hosted by the **Ministry of Science and ICT** and organized by the **Institute of Information & Communications Technology Planning & Evaluation (IITP) and the Federation of Korean Information Industries (FKII)**.  
+This GitHub repository contains **the code and materials submitted to the contest**, as well as **the code used to improve performance and further develop the project after the contest**.  
+
+In this project, we developed an **automated system** that classifies in real time whether fruit is normal, using AI models such as **YOLO, EfficientDet, and EfficientNet**.  
+Using a Raspberry Pi and an Arduino, we processed the collected data in real time and visualized it as a web-based service, designing an **agricultural automation system**.  
+
+**Results summary:**  
+- **Honorable Mention** at the 2024 Hanium ICT Mentoring Contest
+- Published a [paper](https://koreascience.kr/article/CFKO202433162499114.page) as co-first author at the [Korea Information Processing Society (KIPS) ACK 2024](https://www.manuscriptlink.com/society/kips/conference/ack2024) conference
+- In follow-up research, carried out **AI model performance improvement** **(test accuracy improved from 25% → 76%) & improved model generalization by restructuring the data**
+- The contest report and materials are in the **'2024_Hanium_ICT_mentoring_competition_and_Paper' folder** of this repository.
+
+---
+
+## Background  
+- **Problem:** Because of population decline and aging in rural areas, the **need for automated quality control systems for agricultural products** keeps growing. Existing manual quality inspection has **limits in efficiency and accuracy**, so a technical alternative is needed.  
+
+- **Project goals:**  
+  - Develop an **AI-based fruit classification system** for **accurate quality control** and **automated productivity gains**.  
+  - **Classify normal and abnormal fruit in real time** and visualize the results in a web-based service so users can monitor them easily.  
+
+---
+
+## **Tech Stack**
+
+- **Language**:  
+  - Python  
+
+- **Frameworks & Libraries**:  
+  - **PyTorch**: (after the contest) Design and implementation of the EfficientNet-B0 model  
+  - **TensorFlow**: Design and implementation of the YOLOv5s, EfficientDet-D0, and EfficientNet-B0 models  
+  - **Scikit-learn**: Data preprocessing
+  - **OpenCV**: Image preprocessing and image augmentation
+  - **Augmentor**: Image data augmentation (horizontal flip, brightness, contrast, color adjustment)
+
+- **Data Processing & Analysis**:  
+  - **Pandas**: Data manipulation and analysis  
+  - **NumPy**: Numerical data processing and array operations
+  - **Matplotlib**: Result visualization
+
+- **Training Management & Visualization**:  
+  - **Weights & Biases (wandb)**: (after the contest) Experiment and hyperparameter tuning management  
+
+---
+
+## Image Data Used for Model Training
+- Data used for the models built during the Hanium ICT contest
+  - [YOLOv5s (data from the link used as-is)](https://www.kaggle.com/datasets/sriramr/fruits-fresh-and-rotten-for-classification)
+  - [EfficientDet-D0](https://drive.google.com/drive/u/2/folders/1AotMBlR4IlhqmpxC5WBf-SbpKsxDilvy)
+  - [EfficientNet-B0](https://drive.google.com/drive/u/2/folders/1tXkCgdoUun-kd0XHSJ6oGFw6jI1e00of)
+- Data used for the model built after the Hanium ICT contest (**Train and Validation data built to resemble the Test dataset images**)
+  - [EfficientNet-B0](https://drive.google.com/drive/u/2/folders/1Tv1ODKL3YgzKIJprE9YUsFy9Nngy-45G)
+
+---
+
+## Methodology (Model Selection & Data Processing)
+
+To find the best model, this project tested **three AI models (YOLOv5s, EfficientDet-D0, EfficientNet-B0)** one after another.
+
+### 1. Models tested during the Hanium ICT contest (in order)
+- **YOLOv5s**
+  - Chosen to perform object detection at the same time as fruit classification  
+  - Trained on a Kaggle dataset  
+  - **Issue:** Because the annotation files were not handled properly, it scored over 90% during training but detected almost no objects in actual tests  
+
+- **EfficientDet-D0**
+  - Chosen after the YOLO model, considering its **lightweight architecture and ability to run smoothly in embedded environments**  
+  - Modified the data used for YOLOv5s and **restructured the dataset so that each image contains only one fruit**  
+  - **Data split:** 
+    - Train: 75 images/category  
+    - Validation: 25 images/category  
+    - Test: 25 images/category  
+    - (Annotation files created manually)  
+  - **Issue:** It reached high accuracy during training, but **real-world performance was poor because there was too little data overall**  
+
+- **EfficientNet-B0**
+  - **Because the project setup photographs objects with a camera, we judged that an image classification model would fit better than an object detection model, and switched to it**  
+  - Expanded the dataset by **augmenting (with Augmentor)** the data used for EfficientDet-D0  
+  - **Data split:**  
+    - Train: 1000 images/category  
+    - Validation: 800 images/category  
+    - Test: 90 images/category  
+  - **Results:**  
+    - Recorded the highest accuracy during training and was selected as the final model  
+    - **Accuracy converged to 100%** at the time of the contest submission  
+
+### 2. Research after the contest (improving EfficientNet-B0)
+- Used the contest dataset, but **rebuilt the Train and Validation sets to resemble the Test data**  
+  - **To move quickly, excluded the "rotten fruit" data and kept only normal fruit (apple, banana, orange)**  
+- After just one training run, **performance on the Test dataset improved from 25% → 76%**
+
+---
+
+## My Contribution
+
+My main roles in this project were as follows.
+
+### 1. Data processing & augmentation
+- Performed data preprocessing and augmentation for each model: YOLOv5s, EfficientDet-D0, and EfficientNet-B0  
+- Applied image augmentation such as **horizontal flips, brightness adjustment, and contrast changes** with Augmentor  
+- **Augmented the dataset to over 1,000 images** to train the EfficientNet-B0 model  
+
+### 2. Model performance analysis & improvement
+- Analyzed each model's performance while moving from **YOLOv5s → EfficientDet-D0 → EfficientNet-B0**  
+- After the contest, **restructured the data** to improve the EfficientNet-B0 model's performance  
+  - **It scored 25% on the Test data at the time of the contest, and improved to 76% after my own research**  
+
+### 3. Report & paper writing
+- Wrote the 2024 Hanium ICT Mentoring Contest report and the [KIPS paper](https://koreascience.kr/article/CFKO202433162499114.page)  
+  - Summarized the project overview and experiment results  
+  - Documented the EfficientNet-B0 improvement process and results
+
+---
+
 # AI를 활용한 과일 자동분류 서비스
 
 ## 프로젝트 개요 & 성과 요약  
